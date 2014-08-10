@@ -1,0 +1,137 @@
+#######################################################
+#	Document: (Geo .. Sin Enredos + Ejemplos y Extras)
+#	Version: 0.1.1
+#   Licence: GNU GPL
+#	Autor: Andres Herrera
+#   Contact: t763rm3n at gmail.com	
+#######################################################
+
+MAP
+	NAME Ejemplo7
+		SIZE 700 500
+		STATUS ON
+		EXTENT -88 -5 -62 13
+		
+		SHAPEPATH "shapes/"
+		FONTSET "misc/fonts/fonts.txt"
+		SYMBOLSET "misc/symbols/symbols.sym"
+		
+		IMAGECOLOR 255 255 255
+		UNITS dd
+
+	WEB
+		IMAGEPATH "C:/ms4w/Apache/htdocs/mfd_win/tmp/"
+		IMAGEURL "tmp/"
+	END
+	
+	REFERENCE  
+		IMAGE mapaclave.gif
+		EXTENT -88 -5 -62 13
+		STATUS ON
+		COLOR -1 -1 -1
+		OUTLINECOLOR 255 0 0
+		SIZE 200 143      
+	END
+	
+	LAYER
+		NAME "Norte"
+		TYPE POINT
+		STATUS ON
+		TRANSFORM OFF
+		POSTLABELCACHE TRUE
+		FEATURE
+			POINTS 
+				35 35
+			END
+		END
+		CLASS
+			SYMBOL 'rosavientos'
+			COLOR 0 0 0
+			OUTLINECOLOR 0 0 0
+			STYLE END
+		END
+	END
+	
+	
+	LEGEND 
+		IMAGECOLOR 255 255 255 
+		KEYSIZE 18 12 
+		KEYSPACING 5 5
+		LABEL   
+			SIZE SMALL  
+			TYPE BITMAP   
+			BUFFER 0   
+			COLOR 0 0 30    
+			FORCE FALSE 
+			MINDISTANCE -1  
+			MINFEATURESIZE -1  
+			OFFSET 0 0   
+			PARTIALS TRUE 
+		END 
+		POSITION LL  
+		STATUS ON  
+	END
+	
+	SCALEBAR
+		IMAGECOLOR 255 255 255 
+		LABEL
+			COLOR 0 0 0 
+			SIZE SMALL
+		END
+		SIZE 350 4
+		COLOR 255 255 255
+
+		BACKGROUNDCOLOR 0 0 0
+		OUTLINECOLOR 0 0 0
+
+		UNITS KILOMETERS
+		INTERVALS 5
+		STATUS ON
+	END
+	
+
+	LAYER
+		NAME "Poligonos"
+		STATUS ON
+		DATA "poligono.shp"
+		TYPE POLYGON
+		CLASS
+		NAME "Poligonos"
+			STYLE
+				COLOR 255 123 0
+				OUTLINECOLOR 0 0 0
+			END
+		END
+	END
+	
+	LAYER
+		NAME "Lineas"
+		STATUS ON
+		DATA "lineas.shp"
+		TYPE LINE
+		CLASS
+		NAME "Lineas"
+			STYLE
+				COLOR 0 0 0
+				OUTLINECOLOR 0 0 0
+			END
+		END
+	END
+	
+	LAYER
+		NAME "Puntos"
+		STATUS ON
+		DATA "puntos.shp"
+		TYPE POINT
+		CLASS
+		NAME "Puntos"
+			STYLE
+			    SYMBOL star
+				SIZE 10
+				COLOR 0 34 125
+				OUTLINECOLOR 0 255 0
+			END
+		END
+	END
+	
+END

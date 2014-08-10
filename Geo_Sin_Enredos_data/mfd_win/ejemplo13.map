@@ -1,0 +1,68 @@
+#######################################################
+#	Document: (Geo .. Sin Enredos + Ejemplos y Extras)
+#	Version: 0.1.1
+#   Licence: GNU GPL
+#	Autor: Andres Herrera
+#   Contact: t763rm3n at gmail.com	
+#######################################################
+
+MAP
+	NAME Ejemplo13
+		SIZE 700 500
+		STATUS ON
+		EXTENT -88 -5 -62 13
+		
+		SHAPEPATH "shapes/"
+		FONTSET "misc/fonts/fonts.txt"
+		SYMBOLSET "misc/symbols/symbols.sym"
+		
+		IMAGECOLOR 255 255 255
+		UNITS dd
+
+	WEB
+		IMAGEPATH "C:/ms4w/Apache/htdocs/mfd_win/tmp/"
+		IMAGEURL "tmp/"
+	END
+
+	LAYER
+		NAME "Poligonos"
+		STATUS ON
+		DATA "poligono.shp"
+		TYPE POLYGON
+		CLASS
+			STYLE
+				COLOR 255 123 0
+				OUTLINECOLOR 0 0 0
+			END
+		END
+	END
+	
+	LAYER
+		NAME "Lineas"
+		STATUS ON
+		DATA "lineas.shp"
+		TYPE LINE
+		CLASS
+			STYLE
+				COLOR 0 0 0
+				OUTLINECOLOR 0 0 0
+			END
+		END
+	END
+	
+	LAYER
+		NAME "Puntos"
+		STATUS ON
+		DATA "puntos.shp"
+		TYPE POINT
+		CLASS
+			STYLE
+			    SYMBOL star
+				SIZE 10
+				COLOR 0 34 125
+				OUTLINECOLOR 0 255 0
+			END
+		END
+	END
+	
+END

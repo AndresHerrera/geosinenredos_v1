@@ -1,0 +1,84 @@
+#######################################################
+#	Document: (Geo .. Sin Enredos + Ejemplos y Extras)
+#	Version: 0.1.1
+#   Licence: GNU GPL
+#	Autor: Andres Herrera
+#   Contact: t763rm3n at gmail.com	
+#######################################################
+
+MAP
+	
+	NAME Ejemplo2
+		SIZE 700 500
+		STATUS ON
+		EXTENT -88 -5 -62 13
+		
+		FONTSET "misc/fonts/fonts.txt"
+		SYMBOLSET "misc/symbols/symbols.sym"
+		
+		IMAGECOLOR 255 255 255
+		UNITS dd
+
+	WEB
+		IMAGEPATH "/var/www/mfd_lin/tmp/"
+		IMAGEURL "tmp/"
+	END
+
+	
+	LAYER
+		CONNECTIONTYPE postgis
+		NAME "Poligonos"
+		STATUS ON
+		
+		CONNECTION "user=postgres password=fromsky dbname=tutopostgis host=192.168.1.11"
+		DATA "the_geom FROM poligono as poligono using unique gid using SRID=-1"
+		
+		TYPE POLYGON
+		CLASS
+			STYLE
+				COLOR 255 123 0
+				OUTLINECOLOR 0 0 0
+			END
+		END
+	END
+	
+	
+	LAYER
+		CONNECTIONTYPE postgis
+		NAME "Lineas"
+		STATUS ON
+		
+		CONNECTION "user=postgres password=fromsky dbname=tutopostgis host=192.168.1.11"
+		DATA "the_geom FROM lineas as lineas using unique gid using SRID=-1"
+		
+		TYPE LINE
+		CLASS
+			STYLE
+				COLOR 0 0 0
+				OUTLINECOLOR 0 0 0
+			END
+		END
+	END
+	
+	
+	LAYER
+		CONNECTIONTYPE postgis
+		NAME "Puntos"
+		STATUS ON
+		
+		CONNECTION "user=postgres password=fromsky dbname=tutopostgis host=192.168.1.11"
+		DATA "the_geom FROM puntos as puntos using unique gid using SRID=-1"
+		
+		TYPE POINT
+		CLASS
+			STYLE
+			    SYMBOL star
+				SIZE 10
+				COLOR 0 34 125
+				OUTLINECOLOR 0 255 0
+			END
+		END
+	END
+
+
+END

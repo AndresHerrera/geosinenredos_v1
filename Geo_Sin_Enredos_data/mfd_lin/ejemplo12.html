@@ -1,0 +1,41 @@
+<!--
+/*
+	Document: (Geo .. Sin Enredos + Ejemplos y Extras)
+	Version: 0.1.1
+    Licence: GNU GPL
+	Autor: Andres Herrera
+    Contact: t763rm3n at gmail.com	
+*/
+!-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Ejemplo 12 - Geo .. Sin Enredos + Ejemplos y Extras  by: Andres Herrera</title>
+    <style type="text/css">
+        #map {
+            width: 800px;
+            height: 600px;
+            border: 1px solid black;
+        }
+    </style>
+    <script src="misc/lib/OpenLayers.js"></script>
+    <script type="text/javascript">
+        var map;
+        window.onload = function()
+		{
+            map = new OpenLayers.Map( 'map', {maxResolution: 'auto'} );
+            
+			var layerPoligono = new OpenLayers.Layer.MapServer( "Poligono", "http://192.168.1.15/cgi-bin/mapserv?map=/var/www/mfd_lin/ejemplo11.map", {layers: 'Poligonos'}, {isBaseLayer: true,buffer: 1,  gutter:0} );
+            var layerLineas = new OpenLayers.Layer.MapServer( "Lineas", "http://192.168.1.15/cgi-bin/mapserv?map=/var/www/mfd_lin/ejemplo11.map", {layers: 'Lineas',transparent: true, format: "image/png"}, {isBaseLayer: false,buffer: 1, gutter:0, visibility:false} );
+            var layerPuntos = new OpenLayers.Layer.MapServer( "Puntos", "http://192.168.1.15/cgi-bin/mapserv?map=/var/www/htdocs/mfd_lin/ejemplo11.map", {layers: 'Puntos',transparent: true, format: "image/png"}, {isBaseLayer: false,buffer: 1, gutter:0, visibility:false} );
+            
+			map.addLayers([layerPoligono,layerLineas,layerPuntos]);
+			
+            map.setCenter(new OpenLayers.LonLat(-70, 4), 4);
+            map.addControl( new OpenLayers.Control.LayerSwitcher() );
+        }
+    </script>
+  </head>
+  <body>
+    <div id="map"></div>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+#######################################################
+#	Document: (Geo .. Sin Enredos + Ejemplos y Extras)
+#	Version: 0.1.1
+#   Licence: GNU GPL
+#	Autor: Andres Herrera
+#   Contact: t763rm3n at gmail.com	
+#######################################################
+
+MAP
+	NAME Ejemplo3
+		SIZE 700 500
+		STATUS ON
+		EXTENT -80.15 -4.666 -66.0395 13.4501
+		
+		FONTSET "misc/fonts/fonts.txt"
+		SYMBOLSET "misc/symbols/symbols.sym"
+		
+		IMAGECOLOR 255 255 255
+		UNITS dd
+
+	WEB
+		IMAGEPATH "C:/ms4w/Apache/htdocs/mfd_win/tmp/"
+		IMAGEURL "tmp/"
+	END
+	
+	PROJECTION
+		"init=epsg:4326"
+	END
+
+	LAYER
+	  NAME "Ecosistemas"
+	  TYPE RASTER
+	  STATUS ON
+	  CONNECTION "http://www.humboldt.org.co/unisig/ogc/wxs?service=wms&servicename=Ecosistemas_de_Colombia&request=getcapabilities"
+	  CONNECTIONTYPE WMS
+	  METADATA
+	    "wms_srs"             "EPSG:4326"
+	    "wms_name"            "Ecosistemas"
+	   "wms_server_version"  "1.1.1"
+	   "wms_format"          "image/png"
+	  END
+	END 
+	
+	
+	LAYER
+	  NAME "Biomas"
+	  TYPE RASTER
+	  STATUS ON
+	  CONNECTION "http://www.humboldt.org.co/unisig/ogc/wxs?SERVICENAME=Ecosistemas_de_los_Andes&SERVICE=WMS&request=getcapabilities"
+	  CONNECTIONTYPE WMS
+	  METADATA
+	    "wms_srs"             "EPSG:4326"
+	    "wms_name"            "Biomas"
+	   "wms_server_version"  "1.1.1"
+	   "wms_format"          "image/png"
+	  END
+	END
+	
+END

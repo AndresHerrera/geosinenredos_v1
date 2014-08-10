@@ -1,0 +1,172 @@
+#######################################################
+#	Document: (Geo .. Sin Enredos + Ejemplos y Extras)
+#	Version: 0.1.1
+#   Licence: GNU GPL
+#	Autor: Andres Herrera
+#   Contact: t763rm3n at gmail.com	
+#######################################################
+
+MAP
+	NAME Expresiones
+		SIZE 700 500
+		STATUS ON
+		EXTENT -88 -5 -62 13
+		
+		SHAPEPATH "shapes/"
+		FONTSET "misc/fonts/fonts.txt"
+		SYMBOLSET "misc/symbols/symbols.sym"
+		
+		IMAGECOLOR 255 255 255
+		UNITS dd
+
+	WEB
+		IMAGEPATH "C:/ms4w/Apache/htdocs/mfd_win/tmp/"
+		IMAGEURL "tmp/"
+	END
+
+	LAYER
+		NAME "Poligonos"
+		STATUS ON
+		DATA "poligono.shp"
+		TYPE POLYGON
+		CLASS
+			STYLE
+				COLOR 255 123 0
+				OUTLINECOLOR 0 0 0
+			END
+		END
+	END
+	
+	LAYER
+		NAME "Lineas"
+		STATUS ON
+		DATA "lineas.shp"
+		TYPE LINE
+				
+		CLASS
+			EXPRESSION ([id]=1)
+			STYLE
+				COLOR 230 255 230
+				OUTLINECOLOR 128 128 128
+			END
+			LABEL
+				COLOR 255 0 255 
+				SHADOWCOLOR 0 0 0
+				SHADOWSIZE 1 1
+				FONT sans
+				TYPE TRUETYPE
+				SIZE 8
+				POSITION CC
+			END
+		END
+		
+		
+		CLASS
+			EXPRESSION ([id]=2)
+			STYLE
+				COLOR 250 0 128
+				OUTLINECOLOR 0 128 5
+			END
+			LABEL
+				COLOR 255 0 255 
+				SHADOWCOLOR 0 0 0
+				SHADOWSIZE 1 1
+				FONT sans
+				TYPE TRUETYPE
+				SIZE 8
+				POSITION CC
+			END
+		END
+		
+		CLASS
+			EXPRESSION ([id]=3)
+			STYLE
+				COLOR 1 0 56
+				OUTLINECOLOR 125 23 5
+			END
+			LABEL
+				COLOR 255 0 255 
+				SHADOWCOLOR 0 0 0
+				SHADOWSIZE 1 1
+				FONT sans
+				TYPE TRUETYPE
+				SIZE 8
+				POSITION CC
+			END
+		END
+		
+  
+  
+	END
+	
+	LAYER
+		NAME "Puntos"
+		STATUS ON
+		DATA "puntos.shp"
+		TYPE POINT
+		
+		
+		CLASS
+			EXPRESSION ([id]=3)
+			STYLE
+				 SYMBOL star
+				SIZE 10
+				COLOR 1 0 255
+				OUTLINECOLOR 0 23 5
+			END
+			LABEL
+				COLOR 255 0 255 
+				SHADOWCOLOR 0 0 0
+				SHADOWSIZE 1 1
+				FONT sans
+				TYPE TRUETYPE
+				SIZE 8
+				POSITION CC
+			END
+		END
+		
+		
+		CLASS
+			EXPRESSION ([id]>3 AND [id]<= 5 )
+			STYLE
+				SYMBOL star
+				SIZE 20
+				COLOR 0 255 0
+				OUTLINECOLOR 255 23 5
+			END
+			LABEL
+				COLOR 255 0 255 
+				SHADOWCOLOR 0 0 0
+				SHADOWSIZE 1 1
+				FONT sans
+				TYPE TRUETYPE
+				SIZE 8
+				POSITION CC
+			END
+		END
+		
+		CLASS
+			EXPRESSION ([id] >= 5 )
+			STYLE
+				SYMBOL pointflag
+				SIZE 30
+				COLOR 255 0 255
+				OUTLINECOLOR 0 23 5
+			END
+			LABEL
+				COLOR 255 0 255 
+				SHADOWCOLOR 0 0 0
+				SHADOWSIZE 1 1
+				FONT sans
+				TYPE TRUETYPE
+				SIZE 8
+				POSITION CC
+			END
+		END
+		
+		
+		
+		
+	END
+	
+END
